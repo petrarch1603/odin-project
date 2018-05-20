@@ -20,13 +20,27 @@
   }
 </style>
 <body>
+<div id="header">
+  <button id='reset'>Reset</button>
+  How many squares would you like?<input type="text" id="userInput">
+  <button id="gridButton">Create Grid!</button>
+</div>
 <div id="container">
 
 </div>
 </body>
 <script>
+var userInput = document.getElementById('userInput').value;
 var container = document.getElementById('container');
 
+document.getElementById('gridButton').addEventListener('click', function () {
+  var userInput = document.getElementById('userInput').value;
+  if (isNaN(userInput) || userInput < 1) {
+    alert('Enter a valid number!');
+  } else {
+    createGrid(userInput);
+  }
+})
 function createGrid(n) {
   for (var rows = 0; rows < n; rows++){
     var row = document.createElement('div');
@@ -42,7 +56,7 @@ function createGrid(n) {
     container.appendChild(row);
   }
 }
-createGrid(16);
+
 
 
 </script>
